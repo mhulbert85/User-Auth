@@ -1,0 +1,35 @@
+<div class="d-flex align-items-center justify-content-center vh-100 my-3">
+  <div class="p-0" style="width:450px">
+    <div class="bg-white rounded-3 shadow-sm p-5" >
+      <h2 class="fw-bold">Reset Password</h2>
+      <%= form_with url: forgot_path, 
+                    data:{ 
+                          turbo: false, 
+                          controller: :validates, 
+                          "validates-danger-class": "text-red-500", 
+                          "validates-success-class": "text-teal-500"
+                         }, 
+                    class:"needs-validation",   
+                    novalidate: true do |f| %>
+        <div class="my-3">
+          <%= f.label :email,  class: "form-label" %>
+          <div data-validates-target="inputGroup">
+            <%= f.email_field :email, 
+                              title: :email, 
+                              data:{ action: "keyup->validates#inputGroupState"}, 
+                              pattern:/^[^@\s]+@[^@\s]+\.[^@\s]+$/, 
+                              autocomplete: "email-address", 
+                              required: true, 
+                              class: "form-control" 
+                            %>
+            <label class="hint form-text">Enter your email address</label>
+          </div>
+        </div>
+        <div class="my-3">
+          <%= f.button "Reset Password", class:"btn btn-primary w-100" %>
+        </div>
+      <% end %>
+    </div>
+    <p class="text-center text-800 mt-4">Not a member?<%= link_to 'Register now', register_path, class:"ps-1 text-800" %></p>
+  </div>
+</div>

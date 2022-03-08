@@ -1,0 +1,16 @@
+<div data-turbo="false">
+  <%= button_to '/auth/github', method: :post, class:"btn btn-auth w-100 my-3" do %>
+    <div class="d-flex align-items-center text-600">
+      <i class="fa-brands fa-github fa-2xl"></i>
+      <span class="ps-3">Sign in with Github</span>
+    </div>
+    <i class="fa fa-chevron-right text-600"></i>
+  <% end  %>
+  <%= button_to '/auth/google', method: :post, class:"btn btn-auth w-100 mt-3" do %>
+    <div class="d-flex align-items-center text-600">
+      <%= image_tag 'svg/brands/google', class:"fa-xl", alt:"google logo" %>
+      <span class="ps-3">Sign in with Google</span>
+    </div>
+    <i class="fa fa-chevron-right text-600"></i>
+  <% end  %>
+</div>

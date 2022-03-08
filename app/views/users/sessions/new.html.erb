@@ -1,0 +1,65 @@
+<div class="d-flex bg-light align-items-center justify-content-center my-3" style="min-height:100vh;">
+  <div class="p-0" style="width:450px">
+    <div class="bg-white rounded-3 shadow-sm p-5" >
+      <h2 class="fw-bold">Log in</h2>
+      <%= form_with url: login_path, data:{ turbo: false, 
+                                            controller: :validates, 
+                                            "validates-danger-class": "text-red-500", 
+                                            "validates-success-class": "text-teal-500"
+                                           }, 
+                                            class:"needs-validation",
+                                            novalidate: true do |f| %>
+        <div class="my-3">
+          <%= f.label :email,  class: "form-label" %>
+          <div data-validates-target="inputGroup">
+            <%= f.email_field :email, 
+                                    title: :email,
+                                    data:{ action: "keyup->validates#inputGroupState"}, 
+                                    pattern:/^[^@\s]+@[^@\s]+\.[^@\s]+$/, 
+                                    autocomplete: "email", 
+                                    required: true, 
+                                    class:"form-control"
+                                  %>
+            <label class="hint form-text">Enter your email address</label>
+          </div>
+        </div>
+        <div data-controller="password" class="my-3">
+          <div class="d-flex">
+            <%= f.label :password, "Password", class: "form-label" do %>
+              Password
+              <a data-action="click->password#toggle" data-password-target="button" class="ps-1 form-text text-800 text-decoration-none" >
+                <i class="fa fa-eye"></i>
+              </a>
+            <% end %>
+          </div>
+          <div data-validates-target="inputGroup">
+            <%= f.password_field :password, 
+                                 title: :password, 
+                                 data: {"password-target": "input",
+                                         action: "keyup->validates#inputGroupState", 
+                                        }, 
+                                 autocomplete: "current-password", 
+                                 required: true, 
+                                 class:"form-control",
+                                 "aria-describedby": "passwordHelpBlock"
+                              %>
+            <label class="hint form-text" id="passwordHelpBlock">Enter your password</label>
+          </div>
+        </div>
+        <div class="my-3">
+          <%= link_to 'Forgot your password?', forgot_path, class:"text-decoration-none text-thrive",  "aria-label": "forgot your password link" %>
+        </div>
+        <div class="my-3">
+          <%= f.button "Log in", class:"btn btn-primary w-100" %>
+        </div>
+      <% end %>
+      <div class="row align-items-center my-3">
+        <div class="col-5"><hr class="w-100"></div>
+        <div class="col-2 text-center text-800">or</div>
+        <div class="col-5"><hr class="w-100"></div>
+      </div>
+      <%= render partial: "components/auth" %>
+    </div>
+    <p class="text-center text-800 mt-4">Not a member?<%= link_to 'Register now', register_path, class:"ps-1 text-800" %></p>
+  </div>
+</div>

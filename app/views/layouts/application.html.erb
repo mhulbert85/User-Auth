@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rails 7 Authentication</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body class="bg-light">
+    <%= render partial: 'components/alerts/danger', locals:{ danger: alert } if flash[:alert].present? %>
+    <%= render partial: 'components/alerts/success', locals:{ success: notice } if flash[:notice].present? %>
+    <%= yield %>
+  </body>
+</html>

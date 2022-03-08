@@ -1,0 +1,15 @@
+.form-control:valid {
+    border: 1px solid $teal-500;
+
+    &:focus {
+        outline: $teal-200 solid 4px;
+    }
+}
+
+.form-control:invalid {
+    border: 1px solid $red-500;
+
+    &:focus {
+        outline: $red-200 solid 4px;
+    }
+}

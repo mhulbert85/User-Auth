@@ -1,0 +1,42 @@
+.skewed {
+    transform: skew(1turn, 355deg);
+}
+
+.skewed-items {
+    transform: skew(1turn, 5deg);
+}
+
+.lift {
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:hover {
+        transform: translateY(-0.3333333333rem);
+    }
+
+    &:active {
+        transform: none;
+    }
+}
+
+.form-text {
+    color: #343a40;
+}
+
+.btn-auth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    font-size: 0.8rem;
+
+    &:hover {
+        background-color: rgba(232, 232, 232, 0.3);
+    }
+}
+
+.border-dashed {
+    border: 0.15rem dashed rgb(159, 159, 159);
+}

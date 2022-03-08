@@ -1,0 +1,7 @@
+Hi <%= params[:user].email if params[:user].email.present? %>,
+
+Thanks for signing up with our platform! Before you can use your account we need to confirm your email address.
+
+<%= email_url(@token, @purpose) %>
+
+Regards,

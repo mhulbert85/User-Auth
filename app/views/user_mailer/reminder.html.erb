@@ -1,0 +1,25 @@
+<!-- Add unique locals & redirect link and pass to template -->
+<%= render layout:"user_mailer/template", 
+           target:"_blank",
+           locals: {
+               preheader:"Thanks for signing up with our platform!", 
+               first_name:"#{params[:user].email if params[:user].email.present?}",
+               title:"Confirm your account before it is to late!"
+               } do %>
+               <%= link_to "Confirm Email Address", email_url(@token, @purpose), { 
+                   style:"display: inline-block;
+                              color: #ffffff; 
+                              background-color: #635bff; 
+                              border: solid 1px #635bff; 
+                              border-radius: 5px; 
+                              box-sizing: border-box; 
+                              cursor: pointer; 
+                              text-decoration: none; 
+                              font-size: 14px; 
+                              font-weight: bold; 
+                              margin: 0; 
+                              padding: 12px 25px; 
+                              text-transform: capitalize; 
+                              border-color: #635bff;" 
+                                } %>
+<% end %>

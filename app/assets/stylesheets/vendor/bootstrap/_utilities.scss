@@ -1,0 +1,39 @@
+/** Extend bootstrap utilities **/
+
+// set all bootstrap color classes and variables e.g. .text-red-500 or $red-500
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans, $grays);
+
+$keys: "color", "background-color";
+
+@each $key in $keys {
+  $utilities: map-merge($utilities,
+      ($key: map-merge(map-get($utilities, $key),
+          (values: map-merge(map-get(map-get($utilities, $key), "values"),
+              ($all-colors),
+            ),
+          ),
+        ),
+      ));
+}
+
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem;
+$spacers: (6: $spacer * 4, 7: $spacer * 5, 8: $spacer * 6, 9: $spacer * 7, 10: $spacer * 8);
+$all-spacers: map-merge-multiple($spacers);
+
+$classes: "margin", "margin-x", "margin-y", "margin-top", "margin-end", "margin-bottom", "margin-start",
+          "padding", "padding-x", "padding-y", "padding-top", "padding-end", "padding-bottom", "padding-start";
+
+// iterate classes and merge
+@each $class in $classes {
+  $utilities: map-merge($utilities,
+      ($class: map-merge(map-get($utilities, $class),
+          (values: map-merge(map-get(map-get($utilities, $class), "values"),
+              ($all-spacers),
+            ),
+          ),
+        ),
+      ));
+}
+
+@import "bootstrap/scss/utilities/api";

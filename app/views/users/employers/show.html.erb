@@ -1,0 +1,19 @@
+<!-- Page Naviagation -->
+<div class="bg-light sticky-top">
+  <div class="container">
+    <%= render partial: "components/header_employer" %>
+  </div>
+</div>
+<!-- Welcome -->
+<div class="container my-5">
+  <p class="h2">Welcome back <%= current_user.email %>!</p>
+</div>
+
+<div class="container">
+  <%= link_to 'New Job', new_vacancy_path, class:"btn btn-success btn-lg" %>
+</div>
+
+<!-- Footer -->
+<div class="mt-6">
+  <%= render partial: "components/footer" %>
+</div>

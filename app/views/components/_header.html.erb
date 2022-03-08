@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg">
+  <%= link_to "My Website", root_path %>  
+  <button class="navbar-toggler text-800" 
+          type="button" 
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent" 
+          aria-controls="navbarContent" 
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <i class="fa-solid fa-bars text-800"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav navbar-sm mr-auto w-100 justify-content-end">
+      <li class="nav-item p-1">
+        <%= link_to 'Login', login_path, class:"btn text-800 lift", style:"min-width:100px;" %>
+      </li>
+      <li class="nav-item p-1">
+        <%= link_to 'Register', register_path, class:"btn btn-outline-thrive lift", style:"min-width:100px;" %>
+      </li>
+    </ul>
+  </div>
+</nav>

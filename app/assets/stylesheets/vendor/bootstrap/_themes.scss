@@ -1,0 +1,32 @@
+// Add customs themes to bootstrap
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "cyan": $cyan,
+  "green": $green,
+  "teal": $teal,
+  "yellow": $yellow,
+  "orange": $orange,
+  "red": $red,
+  "pink": $pink
+  );
+
+// Hover events for typography & background
+@each $class, $color in $theme-colors {
+  .#{$class}\3Ahover:hover {
+      color: lighten($color, 10%);
+  }
+  .bg-#{$class}\3Ahover:hover {
+      background-color: lighten($color, 45%);
+  }  
+}

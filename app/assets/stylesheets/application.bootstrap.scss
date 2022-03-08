@@ -1,0 +1,11 @@
+@import 'vendor/bootstrap/variables',
+        'vendor/bootstrap/themes';
+
+@import 'bootstrap/scss/bootstrap';
+
+@import 'vendor/bootstrap/utilities',
+        'vendor/bootstrap/validation', 
+        'vendor/bootstrap/breakpoints',
+        'vendor/fontawesome/brands';
+        
+@import 'custom';
