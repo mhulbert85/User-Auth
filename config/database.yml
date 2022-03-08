@@ -29,7 +29,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: thrive
+  #username: user_auth
 
   # The password associated with the postgres role (username).
   #password:
@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: user_auth_production
-  username: thrive
+  username: user_auth
   password: <%= ENV["USER_AUTH_DATABASE_PASSWORD"] %>
