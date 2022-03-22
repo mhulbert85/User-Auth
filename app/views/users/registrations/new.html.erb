@@ -14,7 +14,7 @@
                         novalidate: true do |f| %>
         <div class="my-3">
           <%= f.label :email, class: "form-label" %>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.email_field :email, 
                                       title: :email,
                                       data:{ action: "keyup->validates#submit"}, 
@@ -35,13 +35,13 @@
               </a>
             <% end %>
           </div>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.password_field :password,
                                    title: :password, 
                                    data: { 
                                      "password-target": "input",
                                      action: "keyup->validates#submit",  
-                                     "validates-target": "input"
+                                     "validates-target": "input",
                                      }, 
                                    pattern: /^[a-zA-Z0-9]{6,}$/,
                                    autocomplete: "new-password",  
@@ -53,13 +53,13 @@
           </div>
           <div class="my-3">
             <%= f.label :password_confirmation, "Confirm Password", class: "form-label" %>
-            <div data-validates-target="inputGroup">
+            <div data-validates-target="form">
               <%= f.password_field :password_confirmation,
                                      title: :password,
                                      data: { 
                                        "password-target": "input",
                                        action: "keyup->validates#submit" ,
-                                       "validates-target": "input"                                       
+                                       "validates-target": "input",                                       
                                        },
                                      pattern: /^[a-zA-Z0-9]{6,}$/,
                                      autocomplete: "new-password",  

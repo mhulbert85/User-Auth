@@ -11,7 +11,7 @@
                                             novalidate: true do |f| %>
         <div class="my-3">
           <%= f.label :email,  class: "form-label" %>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.email_field :email, 
                                     title: :email,
                                     data:{ action: "keyup->validates#submit"}, 
@@ -32,7 +32,7 @@
               </a>
             <% end %>
           </div>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.password_field :password, 
                                  title: :password, 
                                  data: {

@@ -13,7 +13,7 @@
                     novalidate: true do |f| %>
         <div class="my-3">
           <%= f.label :email,  class: "form-label" %>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.email_field :email, 
                               title: :email, 
                               data:{ action: "keyup->validates#submit"}, 
