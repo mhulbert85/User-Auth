@@ -52,7 +52,7 @@ export default class extends Controller {
 
       const password = this.inputTargets[0]
       const confirmation = this.inputTargets[1]
-      const hint = document.getElementById('confirmation-hint')
+      const hint = document.getElementById('hint')
 
       if (password.value !== confirmation.value) {
         hint.textContent = "Passwords don't match"
