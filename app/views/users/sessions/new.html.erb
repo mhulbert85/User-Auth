@@ -14,7 +14,7 @@
           <div data-validates-target="inputGroup">
             <%= f.email_field :email, 
                                     title: :email,
-                                    data:{ action: "keyup->validates#inputGroupState"}, 
+                                    data:{ action: "keyup->validates#submit"}, 
                                     pattern:/^[^@\s]+@[^@\s]+\.[^@\s]+$/, 
                                     autocomplete: "email", 
                                     required: true, 
@@ -35,9 +35,10 @@
           <div data-validates-target="inputGroup">
             <%= f.password_field :password, 
                                  title: :password, 
-                                 data: {"password-target": "input",
-                                         action: "keyup->validates#inputGroupState", 
-                                        }, 
+                                 data: {
+                                   "password-target": "input",
+                                   action: "keyup->validates#submit"
+                                   }, 
                                  autocomplete: "current-password", 
                                  required: true, 
                                  class:"form-control",

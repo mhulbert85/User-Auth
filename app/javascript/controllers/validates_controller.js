@@ -14,7 +14,7 @@ export default class extends Controller {
    */
 
 
-  inputGroupState() {
+  submit() {
     // check that target is present
     if (this.hasInputGroupTarget) {
       this.inputGroupTargets.forEach(inputGroup => {

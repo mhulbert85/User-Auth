@@ -23,10 +23,11 @@
           <div data-validates-target="inputGroup">
             <%= f.password_field :password,
                                    title: :password, 
-                                   data: { "password-target": "input",
-                                           action: "keyup->validates#inputGroupState",  
-                                           "validates-target": "input"
-                                        }, 
+                                   data: { 
+                                     "password-target": "input",
+                                      action: "keyup->validates#submit",  
+                                      "validates-target": "input"
+                                      }, 
                                    pattern: /^[a-zA-Z0-9]{6,}$/,
                                    autocomplete: "new-password",  
                                    required: true, 
@@ -40,10 +41,11 @@
             <div data-validates-target="inputGroup">
               <%= f.password_field :password_confirmation,
                                      title: :password,
-                                     data: { "password-target": "input",
-                                              action: "keyup->validates#inputGroupState" ,
-                                              "validates-target": "input"                                       
-                                            },
+                                     data: { 
+                                       "password-target": "input",
+                                       action: "keyup->validates#submit" ,
+                                       "validates-target": "input"                                       
+                                       },
                                      pattern: /^[a-zA-Z0-9]{6,}$/,
                                      autocomplete: "new-password",  
                                      required: true, 

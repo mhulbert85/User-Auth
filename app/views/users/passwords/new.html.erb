@@ -16,7 +16,7 @@
           <div data-validates-target="inputGroup">
             <%= f.email_field :email, 
                               title: :email, 
-                              data:{ action: "keyup->validates#inputGroupState"}, 
+                              data:{ action: "keyup->validates#submit"}, 
                               pattern:/^[^@\s]+@[^@\s]+\.[^@\s]+$/, 
                               autocomplete: "email-address", 
                               required: true, 
