@@ -1,25 +1,17 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from '@hotwired/stimulus'
 
-// Connects to data-controller="validates"
+// Connects to data-controller='validates'
 export default class extends Controller {
 
-  static targets = ["input", "inputGroup"]
+  static targets = ['input', 'form']
 
-  static classes = ["success", "danger"]
+  static classes = ['success', 'danger']
 
-  /*
-      * TODO: if min length return message
-      * TODO: if max length return message
-      * TODO: add other html elements
-   */
-
-
-  inputGroupState() {
-    // check that target is present
-    if (this.hasInputGroupTarget) {
-      this.inputGroupTargets.forEach(inputGroup => {
-        const input = inputGroup.querySelector('input');
-        const hint = inputGroup.querySelector('label');
+  submit() {
+    if (this.hasFormTarget) {
+      this.formTargets.forEach(form => {
+        const input = form.querySelector('input');
+        const hint = form.querySelector('label');
         this.pattern(input, hint)
         this.required(input, hint)
         this.whitespaces(input, hint)
@@ -42,26 +34,25 @@ export default class extends Controller {
 
   required(input, hint) {
     if (input.required && input.value.trim() === '') {
-      hint.textContent = "This field is required"
+      hint.textContent = 'This field is required'
       this.invalid(hint)
     }
   }
 
   whitespaces(input, hint) {
     if (/\s/.test(input.value)) {
-      hint.textContent = "Whitespaces not allowed"
-      input.setCustomValidity("invalid")
+      hint.textContent = 'Whitespaces not allowed'
+      input.setCustomValidity('invalid')
       this.invalid(hint)
     }
   }
 
   passwordConfirmation() {
-    // check that target is present
     if (this.hasInputTarget) {
 
       const password = this.inputTargets[0]
       const confirmation = this.inputTargets[1]
-      const hint = document.getElementById('confirmation-hint')
+      const hint = document.getElementById('hint')
 
       if (password.value !== confirmation.value) {
         hint.textContent = "Passwords don't match"
@@ -73,7 +64,7 @@ export default class extends Controller {
       confirmation.setCustomValidity('');
 
       if (password.value === confirmation.value && password.value.trim() !== '' && confirmation.checkValidity()) {
-        hint.textContent = "Passwords match"
+        hint.textContent = 'Passwords match'
         this.valid(hint)
       }
     }

@@ -11,16 +11,16 @@
                                             novalidate: true do |f| %>
         <div class="my-3">
           <%= f.label :email,  class: "form-label" %>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.email_field :email, 
                                     title: :email,
-                                    data:{ action: "keyup->validates#inputGroupState"}, 
+                                    data:{ action: "keyup->validates#submit"}, 
                                     pattern:/^[^@\s]+@[^@\s]+\.[^@\s]+$/, 
                                     autocomplete: "email", 
                                     required: true, 
                                     class:"form-control"
                                   %>
-            <label class="hint form-text">Enter your email address</label>
+            <label class="form-text">Enter your email address</label>
           </div>
         </div>
         <div data-controller="password" class="my-3">
@@ -32,18 +32,19 @@
               </a>
             <% end %>
           </div>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.password_field :password, 
                                  title: :password, 
-                                 data: {"password-target": "input",
-                                         action: "keyup->validates#inputGroupState", 
-                                        }, 
+                                 data: {
+                                   "password-target": "input",
+                                   action: "keyup->validates#submit"
+                                   }, 
                                  autocomplete: "current-password", 
                                  required: true, 
                                  class:"form-control",
                                  "aria-describedby": "passwordHelpBlock"
                               %>
-            <label class="hint form-text" id="passwordHelpBlock">Enter your password</label>
+            <label class="form-text" id="passwordHelpBlock">Enter your password</label>
           </div>
         </div>
         <div class="my-3">

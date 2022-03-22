@@ -13,16 +13,16 @@
                     novalidate: true do |f| %>
         <div class="my-3">
           <%= f.label :email,  class: "form-label" %>
-          <div data-validates-target="inputGroup">
+          <div data-validates-target="form">
             <%= f.email_field :email, 
                               title: :email, 
-                              data:{ action: "keyup->validates#inputGroupState"}, 
+                              data:{ action: "keyup->validates#submit"}, 
                               pattern:/^[^@\s]+@[^@\s]+\.[^@\s]+$/, 
                               autocomplete: "email-address", 
                               required: true, 
                               class: "form-control" 
                             %>
-            <label class="hint form-text">Enter your email address</label>
+            <label class="form-text">Enter your email address</label>
           </div>
         </div>
         <div class="my-3">
